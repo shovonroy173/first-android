@@ -1,27 +1,25 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-gesture-handler';
+import { StyleSheet, View, Text } from 'react-native'; // Import Text from react-native, not gesture-handler
 
 const MyComponent = () => {
   return (
-    <View style={styles.text}>
+    <View style={styles.container}>
       <Text style={styles.text}>My Component</Text>
     </View>
   );
 };
 
-export default MyComponent;
-
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 16,
-      },
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+  },
   text: {
-    color: '#00000',
+    color: '#000000',
     fontSize: 24,
     marginBottom: 16,
   },
 });
+
+export default MyComponent;

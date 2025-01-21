@@ -1,5 +1,6 @@
 import React from 'react';
 import {  Button, StyleSheet, Text, View } from 'react-native';
+// import CarouselComponent from '../Components/CarouselComponent';
 
 const ProfileScreen = ({ route, navigation }) => {
   return (
@@ -9,6 +10,7 @@ const ProfileScreen = ({ route, navigation }) => {
               title="Go to Home"
               onPress={() => navigation.navigate('Home')}
             />
+            {/* <CarouselComponent/> */}
           </View>
   );
 };

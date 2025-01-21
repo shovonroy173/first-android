@@ -4,7 +4,7 @@ import {  Button, StyleSheet, Text, View } from 'react-native';
 const AllVideosScreen = ({ route, navigation }) => {
   return (
      <View style={styles.screen}>
-            <Text style={styles.text}>Profile Screen</Text>
+            <Text style={styles.text}>All Videos Screen</Text>
             <Button
               title="Go to Home"
               onPress={() => navigation.navigate('Home')}

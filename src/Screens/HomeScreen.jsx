@@ -1,15 +1,15 @@
 /* eslint-disable react/react-in-jsx-scope */
 import {Button, StyleSheet, Text, View} from 'react-native';
-// import MyComponent from '../Components/MyComponent';
-// import CarouselComponent from '../Components/CarouselComponent';
+import MyComponent from '../Components/MyComponent';
+import CarouselComponent from '../Components/CarouselComponent';
 
 const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.screen}>
       <Text style={styles.text}>Home Screen</Text>
       <View style={styles.carousel}>
-        {/* <CarouselComponent /> */}
-        {/* <MyComponent/> */}
+        <CarouselComponent />
+        <MyComponent/>
       </View>
       <Button
         title="Go to Details"
@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   carousel: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
+    height: 500, // Add specific height instead
   },
   text: {
     fontSize: 24,

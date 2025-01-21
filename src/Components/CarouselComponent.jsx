@@ -1,101 +1,68 @@
-import React, { useRef } from 'react';
-import { View,  StyleSheet, Dimensions } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
-import { carouselData } from '../assets/data';
-import { Pagination, renderCarouselItem } from './CarouselItem';
+import React from 'react';
+// import { View, StyleSheet, Dimensions } from 'react-native';
+// import Carousel from 'react-native-snap-carousel';
+import { renderCarouselItem } from './CarouselItem';
+import { FlatList } from 'react-native-gesture-handler';
 
-const SLIDER_WIDTH = Dimensions.get('window').width;
-const ITEM_WIDTH = SLIDER_WIDTH * 0.8;
-const ITEM_HEIGHT = 200;
-
+// const { width: screenWidth } = Dimensions.get('window');
 
 const CarouselComponent = () => {
-  const carouselRef = useRef(null);
+  // const carouselRef = React.useRef(null);
+  const carouselData = [
+    { id: 1, title: 'Item 1' },
+    { id: 2, title: 'Item 2' },
+    { id: 3, title: 'Item 3' },
+  ];
+
+
+
   return (
-    <View style={styles.container}>
-      <Carousel
-        ref={carouselRef}
-        data={carouselData}
-        renderItem={renderCarouselItem}
-        sliderWidth={SLIDER_WIDTH}
-        itemWidth={ITEM_WIDTH}
-        inactiveSlideScale={0.9}
-        inactiveSlideOpacity={0.7}
-        activeSlideAlignment="center"
-        autoplay={true}
-        autoplayInterval={3000}
-        loop={true}
-        enableMomentum={false}
-        lockScrollWhileSnapping={true}
-        onSnapToItem={(index) => {
-          console.log('Current index:', index);
-        }}
-      />
-      <Pagination />
-    </View>
+    // <View style={styles.container}>
+    //   <Carousel
+    //     ref={carouselRef}
+    //     data={carouselData}
+    //     renderItem={renderCarouselItem}
+    //     sliderWidth={screenWidth}
+    //     itemWidth={screenWidth * 0.8}
+    //     loop
+    //     autoplay
+    //   />
+    //  </View>
+    <FlatList
+    horizontal
+    data={carouselData}
+    renderItem={renderCarouselItem}
+    keyExtractor={item => item.id}
+    showsHorizontalScrollIndicator={true}
+  />
   );
 };
 
-
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5f5f5',
+//   },
+//   card: {
+//     backgroundColor: '#fff',
+//     borderRadius: 10,
+//     height: 200,
+//     padding: 10,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     shadowColor: '#000',
+//     shadowOffset: { width: 0, height: 2 },
+//     shadowOpacity: 0.2,
+//     shadowRadius: 4,
+//     elevation: 5,
+//   },
+//   title: {
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//     color: '#333',
+//   },
+// });
 
 export default CarouselComponent;
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      paddingTop: 20,
-    },
-    carouselItem: {
-      width: ITEM_WIDTH,
-      height: ITEM_HEIGHT,
-      backgroundColor: 'white',
-      borderRadius: 8,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
-      overflow: 'hidden',
-    },
-    image: {
-      width: '100%',
-      height: '70%',
-      resizeMode: 'cover',
-    },
-    textContent: {
-      padding: 10,
-    },
-    itemTitle: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: '#333',
-    },
-    itemDescription: {
-      fontSize: 14,
-      color: '#666',
-      marginTop: 5,
-    },
-    paginationContainer: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingVertical: 15,
-    },
-    paginationDot: {
-      width: 8,
-      height: 8,
-      borderRadius: 4,
-      backgroundColor: '#ccc',
-      marginHorizontal: 4,
-    },
-    paginationDotActive: {
-      backgroundColor: '#333',
-      width: 12,
-      height: 12,
-      borderRadius: 6,
-    },
-  });

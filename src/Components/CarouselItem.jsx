@@ -8,6 +8,7 @@ const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = SLIDER_WIDTH * 0.8;
 const ITEM_HEIGHT = 200;
 export const renderCarouselItem = ({ item, index }) => {
+  console.log('LINE AT 11', item);
     return (
       <View style={styles.carouselItem}>
         <View style={styles.textContent}>
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
       shadowRadius: 3.84,
       elevation: 5,
       overflow: 'hidden',
+      marginRight: 20,
     },
     image: {
       width: '100%',

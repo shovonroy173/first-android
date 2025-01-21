@@ -4,7 +4,7 @@ import {  Button, StyleSheet, Text, View } from 'react-native';
 const ExplorerScreen = ({ route, navigation }) => {
   return (
      <View style={styles.screen}>
-            <Text style={styles.text}>Profile Screen</Text>
+            <Text style={styles.text}>Explorer Screen</Text>
             <Button
               title="Go to Home"
               onPress={() => navigation.navigate('Home')}
