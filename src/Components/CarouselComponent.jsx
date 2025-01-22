@@ -1,12 +1,13 @@
 import React from 'react';
 // import { View, StyleSheet, Dimensions } from 'react-native';
 // import Carousel from 'react-native-snap-carousel';
-import { renderCarouselItem } from './CarouselItem';
+import { renderCarouselItem, renderCarouselItemStories, renderhomeScrollData } from './CarouselItem';
 import { FlatList } from 'react-native-gesture-handler';
+import { carouselDataStories, homeScrollData } from '../assets/data';
 
 // const { width: screenWidth } = Dimensions.get('window');
 
-const CarouselComponent = () => {
+const CarouselComponent = ({stories, videos , home}) => {
   // const carouselRef = React.useRef(null);
   const carouselData = [
     { id: 1, title: 'Item 1' },
@@ -17,23 +18,14 @@ const CarouselComponent = () => {
 
 
   return (
-    // <View style={styles.container}>
-    //   <Carousel
-    //     ref={carouselRef}
-    //     data={carouselData}
-    //     renderItem={renderCarouselItem}
-    //     sliderWidth={screenWidth}
-    //     itemWidth={screenWidth * 0.8}
-    //     loop
-    //     autoplay
-    //   />
-    //  </View>
     <FlatList
-    horizontal
-    data={carouselData}
-    renderItem={renderCarouselItem}
+    horizontal={(stories || videos ) ? true : false}
+    data={stories ? carouselDataStories : videos ? carouselData : homeScrollData}
+    renderItem={stories ? renderCarouselItemStories : videos ? renderCarouselItem : renderhomeScrollData}
     keyExtractor={item => item.id}
-    showsHorizontalScrollIndicator={true}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+    vertical={home && true}
   />
   );
 };

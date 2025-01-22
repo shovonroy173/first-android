@@ -18,17 +18,16 @@ const TopTabNavigator = () => {
                tabBarIndicatorStyle: styles.tabIndicator,
                tabBarActiveTintColor: '#e91e63',
                tabBarInactiveTintColor: '#666666',
-               tabBarPressColor: '#e91e6333', // Ripple color on press (Android)
-               tabBarScrollEnabled: false, // Set true if you have many tabs
-               swipeEnabled: true, // Enable swipe gestures
-               animationEnabled: true, // Enable animations when switching tabs
-               // Lazy loading
+               tabBarPressColor: '#e91e6333',
+               tabBarScrollEnabled: false,
+               swipeEnabled: true,
+               animationEnabled: true,
                lazy: true,
-               lazyPreloadDistance: 2, // Preload 2 tabs away
-               // Optional custom tab width
+               lazyPreloadDistance: 2,
                tabBarItemStyle: {
                  width: Dimensions.get('window').width / 3,
                },
+               backgroundColor:'#3b82f6',
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
@@ -52,12 +51,13 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   tabBar: {
-    backgroundColor: '#ffffff',
-    elevation: 4, // Android shadow
-    shadowColor: '#000000', // iOS shadow
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    // backgroundColor: '#ffffff',
+    // elevation: 4, // Android shadow
+    // shadowColor: '#000000', // iOS shadow
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 4,
+    display:'none',
   },
   tabLabel: {
     fontSize: 14,
