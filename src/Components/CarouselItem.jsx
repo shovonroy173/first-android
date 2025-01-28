@@ -1,7 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {carouselData} from '../assets/data';
 import {useRef} from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = SLIDER_WIDTH * 0.8;
@@ -38,11 +39,19 @@ export const renderhomeScrollData = ({item, index}) => {
         <Image source={item.image} style={styles.carouselProfileImage} />
         <Text style={styles.carouselProfileTitle}>{item.title}</Text>
       </View>
-      {/* <View style={styles.carouselItemHome}> */}
+      <View style={styles.carouselItemHome}>
       <Image source={item.image} style={styles.carouselPost} />
-
-      {/* </View> */}
+       </View>
     </View>
+  );
+};
+
+export const renderExplorerData = ({item, index}) => {
+  console.log('LINE AT 11', item.image);
+  return (
+    <TouchableOpacity style={styles.explorerDataContainer}>
+      <Image source={item.image} style={styles.explorerDataContainer}/>
+    </TouchableOpacity>
   );
 };
 
@@ -91,9 +100,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   carouselItemHome: {
-    width: 500,
+    width: SLIDER_WIDTH,
     height: 400,
-    backgroundColor: 'white',
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
   },
   carouselItemStoriesImages: {
     width: STORIES_WIDTH,
@@ -102,10 +113,15 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     marginRight: 20,
   },
+  explorerDataContainer: {
+    width: 123,
+    height: 123,
+    resizeMode: 'contain',
+    marginRight:5,
+  },
   carouselPost: {
     width: 500,
-    height: 400,
-    borderRadius: 20,
+    height: 700,
     resizeMode: 'contain',
   },
   carouselHeader: {
