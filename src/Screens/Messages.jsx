@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Button, StyleSheet, Text, View } from 'react-native';
 
-const AllVideosScreen = ({ route, navigation }) => {
+const Messages = ({ route, navigation }) => {
   return (
      <View style={styles.screen}>
             <Text style={styles.text}>All Videos Screen</Text>
@@ -13,7 +13,7 @@ const AllVideosScreen = ({ route, navigation }) => {
   );
 };
 
-export default AllVideosScreen;
+export default Messages;
 
 const styles = StyleSheet.create({
     screen: {
