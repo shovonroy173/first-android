@@ -1,11 +1,10 @@
 /* eslint-disable no-trailing-spaces */
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-// import TopTabNavigator from './TopTabNavigator';
 import ProfileScreen from '../Screens/ProfileScreen';
-import SettingsScreen from '../Screens/SettingsScreen';
-import DetailsScreen from '../Screens/DetailsScreen';
+import UploadScreen from '../Screens/UploadScreen';
 import TopTabNavigator from './TopTabNavigator';
+import ExplorerScreen from '../Screens/ExplorerScreen';
 
 const BottomTabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -18,21 +17,21 @@ const BottomTabNavigator = () => {
         name="TopTabNavigator"
         component={TopTabNavigator}
         options={{title: 'TopTabNavigator'}}
+      />      
+      <Tab.Screen
+        name="Explorer"
+        component={ExplorerScreen}
+        options={{title: 'Explorer'}}
+      />
+      <Tab.Screen
+        name="Upload"
+        component={UploadScreen}
+        options={{title: 'Upload'}}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
         options={{title: 'Profile'}}
-      />
-      <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{title: 'Settings'}}
-      />
-      <Tab.Screen
-        name="Details"
-        component={DetailsScreen}
-        options={{title: 'Details'}}
       />
     </Tab.Navigator>
   );
