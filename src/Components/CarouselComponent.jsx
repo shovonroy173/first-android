@@ -1,60 +1,40 @@
 import React from 'react';
 // import { View, StyleSheet, Dimensions } from 'react-native';
 // import Carousel from 'react-native-snap-carousel';
-import { renderCarouselItem, renderCarouselItemStories, renderhomeScrollData } from './CarouselItem';
+import { renderCarouselItem, renderCarouselItemStories, renderExplorerData, renderhomeScrollData } from './CarouselItem';
 import { FlatList } from 'react-native-gesture-handler';
-import { carouselDataStories, homeScrollData } from '../assets/data';
+import { carouselDataStories, explorerScrollData, homeScrollData } from '../assets/data';
+import { StyleSheet } from 'react-native';
 
 // const { width: screenWidth } = Dimensions.get('window');
 
-const CarouselComponent = ({stories, videos , home}) => {
-  // const carouselRef = React.useRef(null);
-  const carouselData = [
+const CarouselComponent = ({stories, videos , home, explorer}) => {
+ const carouselData = [
     { id: 1, title: 'Item 1' },
     { id: 2, title: 'Item 2' },
     { id: 3, title: 'Item 3' },
   ];
-
-
-
+  const numColumns = explorer ? 3 : 1;
   return (
     <FlatList
     horizontal={(stories || videos ) ? true : false}
-    data={stories ? carouselDataStories : videos ? carouselData : homeScrollData}
-    renderItem={stories ? renderCarouselItemStories : videos ? renderCarouselItem : renderhomeScrollData}
+    data={stories ? carouselDataStories : videos ? carouselData : explorer ? explorerScrollData : homeScrollData}
+    renderItem={stories ? renderCarouselItemStories : videos ? renderCarouselItem : explorer ? renderExplorerData :  renderhomeScrollData}
     keyExtractor={item => item.id}
     showsHorizontalScrollIndicator={false}
     showsVerticalScrollIndicator={false}
-    vertical={home && true}
+    numColumns={numColumns}
+    contentContainerStyle={explorer && styles.explorerContainer}
   />
   );
 };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#f5f5f5',
-//   },
-//   card: {
-//     backgroundColor: '#fff',
-//     borderRadius: 10,
-//     height: 200,
-//     padding: 10,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     shadowColor: '#000',
-//     shadowOffset: { width: 0, height: 2 },
-//     shadowOpacity: 0.2,
-//     shadowRadius: 4,
-//     elevation: 5,
-//   },
-//   title: {
-//     fontSize: 18,
-//     fontWeight: 'bold',
-//     color: '#333',
-//   },
-// });
+const styles = StyleSheet.create({
+  explorerContainer: {
+    paddingHorizontal: 4,
+    paddingVertical: 4,
+    justifyContent: 'space-between',
+  },
+});
 
 export default CarouselComponent;
