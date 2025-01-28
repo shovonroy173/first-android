@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 /* eslint-disable react/react-in-jsx-scope */
 import { Button, StyleSheet, Text, View } from "react-native";
-const DetailsScreen = ({  navigation }) => {
+const UploadScreen = ({  navigation }) => {
     return (
       <View style={styles.screen}>
         <Text style={styles.text}>Details Screen</Text>
@@ -10,7 +10,7 @@ const DetailsScreen = ({  navigation }) => {
     );
   };
 
-export default DetailsScreen;
+export default UploadScreen;
 const styles = StyleSheet.create({
     screen: {
       flex: 1,
