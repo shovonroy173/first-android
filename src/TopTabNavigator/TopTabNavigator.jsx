@@ -2,11 +2,8 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import HomeScreen from '../Screens/HomeScreen';
-// import ProfileScreen from '../Screens/ProfileScreen';
-// import SettingsScreen from '../Screens/SettingsScreen';
 import { Dimensions, StyleSheet } from 'react-native';
-import ExplorerScreen from '../Screens/ExplorerScreen';
-import AllVideosScreen from '../Screens/AllVideosScreen';
+import Messages from '../Screens/Messages';
 
 const TopTabNavigator = () => {
     const Tab = createMaterialTopTabNavigator();
@@ -31,8 +28,7 @@ const TopTabNavigator = () => {
       }}
     >
       <Tab.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
-      <Tab.Screen name="Profile" component={ExplorerScreen} options={{ title: 'Explorer' }} />
-      <Tab.Screen name="Settings" component={AllVideosScreen} options={{ title: 'AllVideos' }} />
+      <Tab.Screen name="Messages" component={Messages} options={{ title: 'Messages' }} />
     </Tab.Navigator>
   );
 };
